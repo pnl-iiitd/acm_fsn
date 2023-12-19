@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+ name: myservice
+spec:
+ selector:
+   app: server_pod
+ ports:
+ - port: 9000
+   targetPort: 80

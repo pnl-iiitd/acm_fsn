@@ -1,0 +1,25 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: server-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: server_pod
+  template:
+    metadata:
+      labels:
+        app: server_pod
+    spec:
+      containers:
+      - name: simple-http
+        image: nginx
+        imagePullPolicy: IfNotPresent
+        lifecycle:
+          postStart:
+            exec:
+              command: ["/bin/sh", "-c", "echo \"Hello from $(hostname)\" > /usr/share/nginx/html/index.html"]
+        ports:
+        - name: http
+          containerPort: 80
