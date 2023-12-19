@@ -8,4 +8,4 @@ spec:
   - name: test-client
     image: nginx
     command: ["/bin/sh"]
-    args: ["-c", "curl <insert IP here>:80/"]
+    args: ["-c", "while true; do curl -s <insert IP here>:80/; sleep 10; done"]
