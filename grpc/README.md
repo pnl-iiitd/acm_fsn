@@ -1,3 +1,5 @@
+# Build the docker image
+
 ```
 docker build . -t ws/grpc
 ```
@@ -7,7 +9,7 @@ docker build . -t ws/grpc
 Run the docker image as:
 
 ```
-docker run -it --rm --name grpc ws/grpc
+docker run -it --rm --name grpc -v `pwd`/exercises:/ws ws/grpc
 ```
 
 And can exec into it again as:
@@ -15,3 +17,6 @@ And can exec into it again as:
 ```
 docker exec -it grpc bash
 ```
+
+# Compile the proto
+
