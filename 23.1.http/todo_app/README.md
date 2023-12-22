@@ -10,6 +10,12 @@ pip install flask
 flask --app server run
 ```
 
+or
+
+```
+FLASK_APP=server.py flask run
+```
+
 ## Test the application
 
 GET all tasks:
