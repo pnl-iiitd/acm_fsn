@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+  <body>
+    <h1>Chat Room - powered by Websockets</h1>
+    <input type="text" id="msg"/>
+    <input type="button" onclick="sendmsg()" value="Send"/>
+    <ul id="room"></ul>
+  </body>
+
+  <script>
+    const websocket = new WebSocket("ws://localhost:8001/messages");
+
+    function sendmsg() {
+        const msg = document.getElementById("msg").value
+        websocket.send(msg)
+    }
+
+    websocket.addEventListener("message", (msg) => {
+        // msg.data is the actual data unit
+        var entry = document.createElement("li")
+        entry.textContent = msg.data
+        var list = document.getElementById("room")
+        list.appendChild(entry)
+    })
+  </script>
+</html>

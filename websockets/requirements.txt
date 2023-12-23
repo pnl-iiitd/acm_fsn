@@ -1,0 +1,4 @@
+websockets
+fastapi
+uvicorn
+names
